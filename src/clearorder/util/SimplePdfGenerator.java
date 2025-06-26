@@ -8,6 +8,7 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
 
 import clearorder.model.Customer;
 import clearorder.model.Invoice;
@@ -36,9 +37,9 @@ public class SimplePdfGenerator {
             document.addPage(page);
             
             try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {                // Set up fonts
-                PDType1Font titleFont = PDType1Font.HELVETICA_BOLD;
-                PDType1Font headerFont = PDType1Font.HELVETICA_BOLD;
-                PDType1Font normalFont = PDType1Font.HELVETICA;
+                PDType1Font titleFont = new PDType1Font(Standard14Fonts.FontName.HELVETICA_BOLD);
+                PDType1Font headerFont = new PDType1Font(Standard14Fonts.FontName.HELVETICA_BOLD);
+                PDType1Font normalFont = new PDType1Font(Standard14Fonts.FontName.HELVETICA);
                 
                 // Title
                 contentStream.beginText();
